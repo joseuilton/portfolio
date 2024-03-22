@@ -2,7 +2,7 @@ import { Button } from "@/app/components/Button";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
-import { Badge } from "react-simple-badges";
+const { Badge } = require("react-simple-badges");
 import { Project } from "../types/Project";
 import Link from "next/link";
 

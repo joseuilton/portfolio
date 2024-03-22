@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Badge } from "react-simple-badges";
+const { Badge } = require("react-simple-badges");
 
 export function AboutSection() {
   return (
