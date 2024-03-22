@@ -1,6 +1,11 @@
+import { Project } from "../types/Project";
 import { ProjectCard } from "./ProjectCard";
 
-export function ProjectsSection() {
+interface ProjectsSectionProps {
+  projects: Project[];
+}
+
+export function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
     <section
       id="projects"
@@ -10,19 +15,15 @@ export function ProjectsSection() {
         Meus projetos
       </h2>
 
-      <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-12">
-        <div className="hidden lg:block"></div>
-        <div className="lg:col-span-4">
-          <ProjectCard />
-        </div>
-
-        <div className="hidden lg:block lg:col-span-2"></div>
-
-        <div className="lg:col-span-4">
-          <ProjectCard />
-        </div>
-
-        <div className="hidden lg:block"></div>
+      <div
+        className="flex flex-col flex-wrap gap-y-16 lg:flex-row lg:justify-center lg:gap-x-32 
+                   lg:gap-y-20"
+      >
+        {projects.map((project) => (
+          <div key={project.id} className="lg:w-4/12">
+            <ProjectCard project={project} />
+          </div>
+        ))}
       </div>
     </section>
   );

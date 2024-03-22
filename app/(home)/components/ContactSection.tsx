@@ -7,11 +7,15 @@ export function ContactSection() {
   return (
     <section id="contact" className="bg-zinc-100">
       <div className="container mx-auto py-16 px-6 lg:pt-32 lg:pb-52">
-        <h1
+        <h2
           className="text-zinc-950 text-center text-4xl font-bold"
         >
-          Gostou do que viu? Entre em contato
-        </h1>
+          Vamos trabalhar juntos!
+        </h2>
+
+        <h3 className="mt-5 text-center text-zinc-950 text-xl">
+          Entre em contato por uma das opções abaixo
+        </h3>
 
         <div className="flex justify-center">
           <div

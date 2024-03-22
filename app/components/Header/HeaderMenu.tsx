@@ -34,11 +34,6 @@ export function HeaderMenu({ isOpen, onRequestClose }: HeaderMenuProps) {
                      lg:flex-row lg:text-base lg:gap-7 lg:my-0"
         >
           <li>
-            <Link onClick={onRequestClose} href="#hero">
-              Início
-            </Link>
-          </li>
-          <li>
             <Link onClick={onRequestClose} href="#projects">
               Projetos
             </Link>

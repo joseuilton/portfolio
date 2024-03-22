@@ -3,13 +3,19 @@ import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
 import { Badge } from "react-simple-badges";
+import { Project } from "../types/Project";
+import Link from "next/link";
 
-export function ProjectCard() {
+interface ProjectCardProps {
+  project: Project;
+}
+
+export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className="text-zinc-50">
       <div className="w-full h-[180px] relative lg:h-[250px]">
         <Image
-          src={"/images/project1.png"}
+          src={project.images[0]}
           alt="Screenshot do projeto"
           fill
           style={{
@@ -19,27 +25,34 @@ export function ProjectCard() {
         />
       </div>
 
-      <h3 className="mt-6 mb-4  text-xl font-bold">FSW Barber</h3>
+      <h3 className="mt-6 mb-4  text-xl font-bold">{project.title}</h3>
       <div className="flex flex-wrap items-center gap-2">
-          <Badge className="rounded-full" logoColor="#333333" name="JavaScript" />
-          <Badge className="rounded-full" name="TypeScript" />
-          <Badge className="rounded-full" name="React" />
-          <Badge className="rounded-full" name="Tailwind CSS" />
-          <Badge className="rounded-full" name="PostgreSQL" />
+        {project.technologies.map((technology) => (
+          <Badge key={technology} className="rounded-full" name={technology} />
+        ))}
+
+        <p className="absolute invisible">
+          {project.technologies.map((technology) => `${technology}, `)}
+        </p>
       </div>
       <p className="mt-6 mb-8 lg:mt-4 lg:mb-6">
-        Sistema de reserva para barbearias, onde o usuário pode buscar por barbearias, escolher um serviço, realizar um agendamento com horário e data e cancelar uma reserva feita
+        {project.description}
       </p>
 
       <div className="flex justify-between items-center gap-5 lg:justify-normal">
-        <Button size="bold" className="lg:w-auto">
-          Acessar
-          <FaArrowRight size={24} />
+        <Button size="bold" className="lg:w-auto" asChild>
+          <Link href={project.demonstration} target="_blank">
+            Acessar
+            <FaArrowRight size={24} />
+          </Link>
         </Button>
 
-        <Button variant="gray" size="bold" className="lg:w-auto">
-          Repositório
-          <FiGithub size={24} />
+        <Button variant="gray" size="bold" className="lg:w-auto" asChild>
+          <Link href={project.repository} target="_blank">
+            Repositório
+            <FiGithub size={24} />
+          </Link>
+
         </Button>
       </div>
     </div>

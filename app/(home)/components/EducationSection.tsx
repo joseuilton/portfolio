@@ -1,10 +1,15 @@
 import { Button } from "@/app/components/Button";
 import Link from "next/link";
 import { FaRegFile } from "react-icons/fa";
+import { Education } from "../types/Education";
 
-export function EducationSection() {
+interface EducationSectionProps {
+  educations: Education[];
+}
+
+export function EducationSection({ educations }: EducationSectionProps) {
   return (
-    <section 
+    <section
       id="education"
       className="container grid grid-cols-4 gap-y-12 mx-auto py-16 px-6 lg:py-32 lg:grid-cols-12"
     >
@@ -20,37 +25,28 @@ export function EducationSection() {
 
       <div className="col-span-4 lg:col-span-5">
         <ul className="flex flex-col gap-16 text-white">
-          <li>
-            <h3 className="text-xl font-bold">
-              Cursando: Ciência da computação | 2024-2027
-            </h3>
-            <h4 className="mt-3 text-sm font-bold lg:text-base">
-              Instituição: UFAPE (Universidade Federal do Agreste de Pernambuco)
-            </h4>
-            <p className="mt-6 text-sm lg:text-base">
-              Fui aprovado em 3° lugar no curso de ciência da computação na UFAPE no sisu de 2024
-            </p>
-          </li>
+          {educations.map((education) => (
+            <li key={education.id}>
+              <h3 className="text-xl font-bold">
+                {education.title}
+              </h3>
+              <h4 className="mt-3 text-sm font-bold lg:text-base">
+                Instituição: {education.instituicion}
+              </h4>
+              <p className="mt-6 text-sm lg:text-base">
+                {education.description}
+              </p>
 
-          <li>
-            <h3 className="text-xl font-bold">
-              Certificado: Ignite NodeJS | 2022
-            </h3>
-            <h4 className="mt-3 text-sm font-bold lg:text-base">
-              Instituição: Rocketseat
-            </h4>
-            <p className="mt-6 text-sm lg:text-base">
-              Ganhei uma bolsa de estudos de 1 ano na rocketseat por meio do evento DoWhile, durante esse tempo eu estudei a trilha de NodeJS, onde aprendi diversos conceitos utilizados no mercado como Clean architecture, SOLID, TDD, Documentação com Swagger e etc.
-            </p>
-
-              <Button className="mt-8 w-fit" variant="primary" asChild>
-              <Link href="/">
-                Visualizar certificado
-                <FaRegFile size={24} />
-              </Link>
-            </Button>
-            
-          </li>
+              {education.certification && (
+                <Button className="mt-8 w-fit" variant="primary" asChild>
+                  <Link href="/">
+                    Visualizar certificado
+                    <FaRegFile size={24} />
+                  </Link>
+                </Button>
+              )}
+            </li>
+          ))}
         </ul>
       </div>
     </section>

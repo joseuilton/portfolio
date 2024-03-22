@@ -19,12 +19,12 @@ export function HeroSection() {
                    lg:py-24 lg:grid-cols-12"
       >
         <div className="col-span-4 text-zinc-50 lg:col-span-6">
-          <h1 className="text-3xl font-bold lg:text-5xl">
-            Olá! Eu sou <span className="bg-gradient-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text">Uilton,</span> Desenvolvedor Full Stack Javascript
+          <h1 className="text-3xl font-bold lg:text-4xl">
+            Olá! Eu sou Uilton, Desenvolvedor <span className="bg-gradient-to-r from-primary-500 to-secondary-500 text-transparent bg-clip-text">Full Stack JavaScript</span> apaixonado por inovação e tecnologia.
           </h1>
 
           <p className="mt-6 mb-8 font-medium lg:mb-6">
-            Sou um desenvolvedor apaixonado por tecnologia e inovação, sempre em busca de novos desafios para crescer profissionalmente e adquirir novas habilidades, veja os meus projetos e competências e descubra como posso contribuir em seu próximo projeto.
+            Sou um desenvolvedor Full Stack especializado em JavaScript, dedicado a explorar novos desafios e adquirir constantemente novas habilidades. Explore meus projetos e competências abaixo e descubra como posso agregar valor ao seu próximo projeto. Entre em contato para saber mais :)
           </p>
 
           <nav>
@@ -89,7 +89,7 @@ export function HeroSection() {
               src={"/images/hero-image.png"}
               alt="Foto de Uilton"
               fill
-              style={{objectFit: "contain"}}
+              style={{ objectFit: "contain" }}
             />
           </div>
 
